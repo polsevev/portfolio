@@ -1,46 +1,13 @@
 ﻿@page "/fetchdata"
 
-@using portfolio.server.Data
-@inject WeatherForecastService ForecastService
+<h2>If you have any questions or you want an interview, you can reach me here:</h2>
 
-<h1>Weather forecast</h1>
+<h3>Email:</h3>
+<a href="rolf.martin@glomsrud.no">rolf.martin@glomsrud.no</a>
+<h3>Phone Number</h3>
+<p>+47 94196321</p>
 
-<p>This component demonstrates fetching data from a service.</p>
-
-@if (forecasts == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
-                <th>Summary</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var forecast in forecasts)
-            {
-                <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
-
-@code {
-    WeatherForecast[] forecasts;
-
-    protected override async Task OnInitializedAsync()
-    {
-        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
-    }
-}
+<h3>Here you can find my Github where i host most of my personal projects</h3>
+<a href="https://github.com/polsevev">
+    <img src="https://www.cloudsavvyit.com/thumbcache/0/0/85f60b663104f044ba4840ed62faeefe/p/uploads/2019/10/ba9a7cbd.png" asp-append-version="true" widht="50" height= "50" />
+</a>

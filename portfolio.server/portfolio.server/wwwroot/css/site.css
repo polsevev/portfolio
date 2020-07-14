@@ -17,6 +17,7 @@ a {
     color: #fff;
     background-color: #1b6ec2;
     border-color: #1861ac;
+    padding: 10px;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
@@ -72,4 +73,47 @@ body {
     width: 100%;
     white-space: nowrap;
     line-height: 60px; /* Vertically center the text there */
+}
+
+.button-container{
+    display:grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 20px;
+}
+.navbar-brand {
+    font-family: Impact, Charcoal, sans-serif;
+    font-size: 30px;
+    letter-spacing: -0.6px;
+    word-spacing: 0.4px;
+    color: #34ebd2;
+    font-weight: 700;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: capitalize;
+}
+#intro-text{
+    width:600px;
+    padding: 8px;
+    display: inline-block;
+    float: left;
+}
+.text-box{
+    display: inline-block;
+    float: left;
+    padding-left: 20px;
+    color: black;
+}
+.portrait-img {
+    display: inline-block;
+    float: left;
+    border: 4px solid black;
+}
+.intro-container{
+    position:  sticky;
+    padding-left: 20px;
+}
+
+h1{
+    color:green;
 }

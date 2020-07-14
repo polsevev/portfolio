@@ -1,16 +1,65 @@
 ﻿@page "/counter"
+@inject HttpClient http;
 
-<h1>Counter</h1>
+@inherits counterClass
 
-<p>Current count: @currentCount</p>
 
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+@if (Repos == null)
+{
+    <p><em>Loading....</em></p>
+    <button @onclick="@getGithub"></button>
+}
+else
+{
+    <div class="intro-container">
+        <div class="portrait-img">
+            <img src="https://scontent.fosl1-1.fna.fbcdn.net/v/t1.0-9/69673511_1099902950205918_4182302319481716736_o.jpg?_nc_cat=108&_nc_sid=09cbfe&_nc_oc=AQlp2jBaa8mY8UVrd6whV5VsS-BeI0p_7UaWsMv_n9BpqpCGQ349x14d8HjxdaDa4Qk&_nc_ht=scontent.fosl1-1.fna&oh=3ee054fe8abd7549ad63bce4b9cea31e&oe=5F108362" asp-append-version="true" width="200" height="200" />
+        </div>
 
-@code {
-    int currentCount = 0;
+        <div class="text-box" id="short-intro-box">
+            <h2>Who am i? </h2>
+            <p id="intro-text">
+                Hi, my name is Rolf Martin Glomsrud and i am studying computer security at
+                the university of Bergen. I am currently in my 2nd year of a bachelors degree
+                and i welcome you to my portfolio website.
+            </p>
+        </div>
+    </div>
+}
+<div class="intro-container">
+    <div class="portrait-img">
+        <img src="https://scontent.fosl1-1.fna.fbcdn.net/v/t1.0-9/69673511_1099902950205918_4182302319481716736_o.jpg?_nc_cat=108&_nc_sid=09cbfe&_nc_oc=AQlp2jBaa8mY8UVrd6whV5VsS-BeI0p_7UaWsMv_n9BpqpCGQ349x14d8HjxdaDa4Qk&_nc_ht=scontent.fosl1-1.fna&oh=3ee054fe8abd7549ad63bce4b9cea31e&oe=5F108362" asp-append-version="true" width="200" height="200" />
+    </div>
 
-    void IncrementCount()
+    <div class="text-box" id="short-intro-box">
+        <h2>Who am i? </h2>
+        <p id="intro-text">
+            Hi, my name is Rolf Martin Glomsrud and i am studying computer security at
+            the university of Bergen. I am currently in my 2nd year of a bachelors degree
+            and i welcome you to my portfolio website.
+        </p>
+    </div>
+</div>
+
+@code{
+    IList<repos> Repos;
+
+
+    private async Task getGithub()
     {
-        currentCount++;
+
+        Repos = await http.GetJsonAsync<List<repos>>("https://api.github.com/users/jludden/repos");
     }
+
+    public class repos
+    {
+        public string Full_Name { get; set; }
+        public string Description { get; set; }
+        public string HTML_URL { get; set; }
+        public DateTime Created_At { get; set; }
+        public DateTime Updated_At { get; set; }
+        public string Language { get; set; }
+        public bool Fork { get; set; }
+    }
+
 }
